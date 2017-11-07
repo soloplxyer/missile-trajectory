@@ -75,6 +75,7 @@ class missile(object):
 
             #print("<tr><td>" + str(getAirDensity(self.y)) + "</td><td>" + str(getAirPressure(self.y)) + "</td></tr>")
 
+            print(getAirPressure(self.y))
             self.angle = angleToPoint(self.x, self.y, self.x + self.vx, self.y + self.vy)
             self.airPressure.append(getAirPressure(self.y))
             self.airDensity.append(getAirDensity(self.y))
@@ -95,6 +96,11 @@ class missile(object):
                 print("Media pressao do ar: " + str(np.mean(self.airPressure)))
 
                 self.key = True
+
+                plt.plot(self.airPressure)
+                plt.ylabel('Pressao do ar')
+                plt.show()
+
                 plt.plot(self.airDensity)
                 plt.ylabel('Densidade do ar de acordo com a altitude')
                 plt.show()
